@@ -1,0 +1,46 @@
+.main-wrapper{
+  max-width: 62.5rem;
+  margin: 0 auto;
+
+
+  .flex-wrapper{
+    display: flex;
+
+    .flex-title{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .table{
+      margin: 0 0 40px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      display: table;
+
+
+      .table-row{
+        background: #f6f6f6;
+        color: black;
+
+
+        .table-cell{
+          padding: 6px 12px;
+          display: table-cell;
+
+        }
+      }
+    }
+
+    .main-table{
+      width: 100%;
+      margin-left: auto;
+
+      .thirteen-table{
+        width: 100%;
+      }
+    }
+  }
+
+
+
+
+}
