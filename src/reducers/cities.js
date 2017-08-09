@@ -12,11 +12,15 @@ export default function cities(state = initialState, action){
     else if( action.type === 'DELETE_CITY'){
         let stateArray =  [...state];
         let newArray = [];
+        console.log("payload:" +action.payload);
         for(let i=stateArray.length-1; i>=0; i--){
-            if(!stateArray[i]===action.payload){
+            console.log(stateArray[i]);
+            if(stateArray[i]!==action.payload){
                 newArray.push(stateArray[i]);
+                console.log("истина");
             }
         }
+        console.log(newArray);
         return newArray;
     }
     return state;

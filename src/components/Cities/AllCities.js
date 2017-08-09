@@ -39,7 +39,7 @@ class AllCities extends React.Component{
                                 <li>
                                     <Link to={`/cities/${city}`}>{city}</Link>
                                 </li>
-                                <input type="submit" value="Remove" />
+                                <input type="submit" value="Remove" onClick={() => this.DeleteCity(city)}/>
                             </div>
                         ))
                     }
