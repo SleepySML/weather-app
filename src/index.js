@@ -6,24 +6,13 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import registerServiceWorker from './registerServiceWorker';
 import './index.scss';
+import reducer from './reducers';
 
-const initialState = [];
 
-for (let key in localStorage) {
-    initialState.push(localStorage[key]);
-}
 
-function reducer(state = initialState, action){
-    if(action.type==='ADD_CITY'){
-        return [
-            ...state,
-            action.payload
-        ];
-    }
-    return state;
-}
 
-const store = createStore(reducer);
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__&&
+window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render((
     <Provider store={store}>

@@ -5,34 +5,45 @@ import {connect} from 'react-redux';
 
 
 class AllCities extends React.Component{
+    constructor(props){
+        super(props);
+        this.DeleteCity=this.DeleteCity.bind(this)
+    }
 
     AddCity(){
 
-        /*LocalStorageAPI.set(0,"Moscow");
-        console.log(LocalStorageAPI.get(0));*/
+        LocalStorageAPI.set(this.cityInput.value);
 
-
-        console.log(this.cityInput.value);
         this.props.onAddCity(this.cityInput.value);
+        this.cityInput.value = '';
 
-    };
+
+    }
+
+    DeleteCity(cityName){
+        console.log(cityName);
+        LocalStorageAPI.remove(cityName);
+        this.props.onDeleteCity(cityName);
+    }
 
     render(){
-        console.log(this.props.cityStore);
+        //console.log(this.props.cityStore);
         return (
             <div>
+                <input type="text" ref={(input)=> {this.cityInput = input}}/>
+                <button id="add-city-button" onClick={this.AddCity.bind(this)}>Add</button>
                 <ul>
                     {
-                        this.props.cityStore.map((city,index) => (
-                            <li key={index}>
-                                <Link to={`/cities/${city}`}>{city}</Link>
-                            </li>
+                        this.props.cityStore.cities.map((city) => (
+                            <div key={city} >
+                                <li>
+                                    <Link to={`/cities/${city}`}>{city}</Link>
+                                </li>
+                                <input type="submit" value="Remove" />
+                            </div>
                         ))
                     }
                 </ul>
-
-                <input type="text" ref={(input)=> {this.cityInput = input}}/>
-                <button id="add-city-button" onClick={this.AddCity.bind(this)}>Add</button>
             </div>
         );
     }
@@ -48,6 +59,9 @@ export default connect(
         {
             onAddCity: (cityName) =>{
                 dispatch({type:'ADD_CITY', payload: cityName});
+            },
+            onDeleteCity:(cityName)=>{
+                dispatch({type:'DELETE_CITY', payload: cityName});
             }
         }
     )

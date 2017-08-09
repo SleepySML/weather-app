@@ -1,22 +1,21 @@
 export const LocalStorageAPI = {
     all: function() {
         let arrayCur=[];
-        for(let key in localStorage) {
-            arrayCur.push({number: key, name: localStorage[key]});
+        for (let key in localStorage) {
+            arrayCur.push(localStorage[key]);
         }
-        console.log(arrayCur);
         return arrayCur;
     },
 
-    get: function(id) {
-        return localStorage.getItem(id);
+    get: function(name) {
+        return localStorage.getItem(name);
     },
 
-    set: function (number, name) {
+    set: function (name) {
         if(localStorage)
-        localStorage.setItem(number,name);
+        localStorage.setItem(name,name);
     },
-    remove: function (id) {
-        localStorage.removeItem(id);
+    remove: function (name) {
+        localStorage.removeItem(name);
     }
 };

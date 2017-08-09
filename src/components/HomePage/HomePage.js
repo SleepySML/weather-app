@@ -81,6 +81,7 @@ class HomePage extends React.Component{
     }
 
     render(){
+        console.log(this.state.weatherObject);
         return (
             <main className="main-wrapper">
                 {
@@ -94,7 +95,7 @@ class HomePage extends React.Component{
                                 <div className="flex-title">
                                     <div className="title-description">
                                         <img src={`http://openweathermap.org/img/w/${this.state.weatherObject.weather[0].icon}.png`} alt="weather"/>
-                                        <span>{`${this.state.weatherObject.main.humidity}°F`}</span>
+                                        <span>{`${this.state.weatherObject.main.temp - 273.15}°C`}</span>
                                     </div>
 
                                     <table className="table">
