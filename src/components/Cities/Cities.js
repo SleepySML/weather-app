@@ -1,11 +1,7 @@
 import React from 'react';
-import { Switch, Route, Link} from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
 import AllCities from './AllCities';
-import {LocalStorageAPI} from '../../utils/Localstorage';
 import City from './City';
-
-
-
 
 class Cities extends React.Component{
     render(){
