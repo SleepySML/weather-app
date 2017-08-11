@@ -44,10 +44,3 @@ SideTable.propTypes = {
 };
 
 export default SideTable;
-
-/*<tr key={obj.dt} className="table-row">
-    <td className="table-cell">Wind</td>
-    <td className="table-cell">
-        {mapDegreesToDirection(this.props.weatherObject.wind.speed)}
-    </td>
-</tr>*/

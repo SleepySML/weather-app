@@ -7,17 +7,18 @@ import {connect} from 'react-redux';
 class AllCities extends React.Component{
     constructor(props){
         super(props);
-        this.DeleteCity=this.DeleteCity.bind(this)
+        this.DeleteCity=this.DeleteCity.bind(this);
+        this.state = {
+            redirect: false,
+        }
+
     }
 
     AddCity(){
-
         LocalStorageAPI.set(this.cityInput.value);
 
         this.props.onAddCity(this.cityInput.value);
         this.cityInput.value = '';
-
-
     }
 
     DeleteCity(cityName){
@@ -27,7 +28,6 @@ class AllCities extends React.Component{
     }
 
     render(){
-        //console.log(this.props.cityStore);
         return (
             <div>
                 <input type="text" ref={(input)=> {this.cityInput = input}}/>

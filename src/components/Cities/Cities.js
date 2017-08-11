@@ -7,7 +7,7 @@ class Cities extends React.Component{
     render(){
         return (
             <div>
-                <AllCities/>
+                <Route exact path='/cities' component={AllCities}/>
                 <Switch>
                     <Route path='/cities/:name' component={City}/>
                 </Switch>
@@ -18,4 +18,3 @@ class Cities extends React.Component{
 }
 
 export default Cities;
-//<Route exact path='/cities' component={AllCities}/>
