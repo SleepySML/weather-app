@@ -7,8 +7,8 @@ class Cities extends React.Component{
     render(){
         return (
             <div>
-                <Route exact path='/cities' component={AllCities}/>
                 <Switch>
+                    <Route exact path='/cities' component={AllCities}/>
                     <Route path='/cities/:name' component={City}/>
                 </Switch>
             </div>

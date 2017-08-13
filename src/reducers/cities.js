@@ -4,10 +4,9 @@ const initialState = LocalStorageAPI.all() || [];
 
 export default function cities(state = initialState, action){
     if(action.type==='ADD_CITY'){
-        return [
-            ...state,
-            action.payload
-        ];
+            return [
+                ...LocalStorageAPI.all()
+            ];
     }
     else if( action.type === 'DELETE_CITY'){
         let stateArray =  [...state];
@@ -17,7 +16,6 @@ export default function cities(state = initialState, action){
             console.log(stateArray[i]);
             if(stateArray[i]!==action.payload){
                 newArray.push(stateArray[i]);
-                console.log("истина");
             }
         }
         console.log(newArray);

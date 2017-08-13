@@ -8,21 +8,21 @@ class AllCities extends React.Component{
     constructor(props){
         super(props);
         this.DeleteCity=this.DeleteCity.bind(this);
-        this.state = {
-            redirect: false,
-        }
 
     }
 
-    AddCity(){
-        LocalStorageAPI.set(this.cityInput.value);
+    componentWillMount(){
+        console.log("lol");
+        this.props.onAddCity("");
+    }
 
-        this.props.onAddCity(this.cityInput.value);
+    AddCity(){
+
+        this.props.onAddCity();
         this.cityInput.value = '';
     }
 
     DeleteCity(cityName){
-        console.log(cityName);
         LocalStorageAPI.remove(cityName);
         this.props.onDeleteCity(cityName);
     }
@@ -30,8 +30,6 @@ class AllCities extends React.Component{
     render(){
         return (
             <div>
-                <input type="text" ref={(input)=> {this.cityInput = input}}/>
-                <button id="add-city-button" onClick={this.AddCity.bind(this)}>Add</button>
                 <ul>
                     {
                         this.props.cityStore.cities.map((city) => (
@@ -57,8 +55,8 @@ export default connect(
     ),
     dispatch =>(
         {
-            onAddCity: (cityName) =>{
-                dispatch({type:'ADD_CITY', payload: cityName});
+            onAddCity: () =>{
+                dispatch({type:'ADD_CITY', payload: ""});
             },
             onDeleteCity:(cityName)=>{
                 dispatch({type:'DELETE_CITY', payload: cityName});

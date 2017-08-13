@@ -4,8 +4,15 @@ import SideTable from '../common/Tables/SideTable';
 import ForecastTable from '../common/Tables/ForecastTable';
 import {connect} from 'react-redux';
 import {getWeather, getForecast} from '../../actions/weather';
+import {getWeatherByCityName,getForecastByCityName} from '../../actions/weather';
+import {LocalStorageAPI} from '../../utils/Localstorage'
 
 class HomePage extends React.Component{
+    constructor(){
+        super();
+        this.onSearchClick = this.onSearchClick.bind(this);
+        this.onAddToFavorites = this.onAddToFavorites.bind(this);
+    }
 
     componentWillMount() {
 
@@ -16,14 +23,26 @@ class HomePage extends React.Component{
         }
     }
 
+    onSearchClick(cityName){
+        this.props.addWeatherTable(cityName);
+        this.props.addWeatherTable(cityName);
+    }
+
+    onAddToFavorites(cityName){
+        LocalStorageAPI.set(cityName);
+    }
+
     render(){
         return (
             <main className="main-wrapper">
+                <input type="text" ref={(input)=> {this.searchCityInput = input}}/>
+                <button onClick={()=>this.onSearchClick(this.searchCityInput.value)}>Search</button>
                 {
                     this.props.weather.tables.weatherObject && this.props.forecast.tables.forecastObject ?
                         (
                         <div>
                             <span>{`Weather in ${this.props.weather.tables.weatherObject.name}`}</span>
+                            <button onClick={()=>this.onAddToFavorites(this.props.weather.tables.weatherObject.name)}>+</button>
                             <div className="flex-wrapper">
                                 <div className="flex-title">
                                     <div className="title-description">
@@ -57,12 +76,21 @@ export default connect(
     ),
     dispatch =>(
         {
-            addWeatherTable: () =>{
-                dispatch(getWeather());
+            addWeatherTable: (cityName) =>{
+                if(cityName){
+                    dispatch(getWeatherByCityName(cityName));
+                }else {
+                    dispatch(getWeather());
+                }
+
             },
-            addForecastTable: () =>{
-                dispatch(getForecast());
-            }
+            addForecastTable: (cityName) =>{
+                if(cityName){
+                    dispatch(getForecastByCityName(cityName));
+                }else {
+                    dispatch(getForecast(cityName));
+                }
+            },
         }
     )
 )(HomePage);

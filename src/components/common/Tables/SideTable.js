@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {mapDegreesToDirection} from './TableUtils';
+import './sideTable.scss';
 
 class SideTable extends Component {
     render() {

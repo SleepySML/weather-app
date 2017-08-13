@@ -8,12 +8,6 @@ import ForecastTable from '../common/Tables/ForecastTable';
 
 
 class City extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            redirect: false,
-        }
-    }
     componentWillMount(){
         this.props.addWeatherTable(this.props.match.params.name);
         this.props.addForecastTable(this.props.match.params.name);

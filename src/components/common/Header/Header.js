@@ -3,6 +3,12 @@ import {Link} from 'react-router-dom';
 import './header.scss';
 
 class Header extends React.Component{
+    constructor(){
+        super();
+        this.state = {
+            search: "search"
+        }
+    }
     render(){
         return (
             <header className="header">
@@ -12,7 +18,6 @@ class Header extends React.Component{
                     <ul className="nav-list">
                         <li className="nav-link"><Link to='/'>Home</Link></li>
                         <li className="nav-link"><Link to='/cities'>Cities</Link></li>
-                        <li className="nav-link nav-search"><input type="text"/><Link to='/search'>Search</Link></li>
                     </ul>
                 </nav>
                 </div>

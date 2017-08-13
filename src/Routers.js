@@ -11,7 +11,6 @@ class Router extends React.Component{
                 <Switch>
                     <Route exact path='/' component={HomePage}/>
                     <Route path='/cities' component={Cities}/>
-                    <Route path='/search' component={Search}/>
                 </Switch>
             </main>
         );

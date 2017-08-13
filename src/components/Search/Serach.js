@@ -4,7 +4,7 @@ class Search extends React.Component{
     render(){
         return (
             <div>
-                <h1>Search page</h1>
+                <h1>{this.props.match.params.search}</h1>
             </div>
         );
     }
