@@ -16,8 +16,8 @@ export const mapUnixToDate = function(unixTimeStamp, dateProps=[]){
             case "month": time = time + " "+month; break;
             case "date": time = time + " "+date; break;
             case "hour": time = time + " "+hour; break;
-            case "min": time = time + " "+min; break;
-            case "sec": time = time + " "+sec; break;
+            case "min": time = time + ":"+min; break;
+            case "sec": time = time + ":"+sec; break;
         }
     });
     return time || date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;

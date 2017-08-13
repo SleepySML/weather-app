@@ -2,41 +2,123 @@
   max-width: 62.5rem;
   margin: 0 auto;
 
+  .search-title{
+    text-align: center;
+  }
+
+  .search-block{
+    text-align: center;
+    margin: 30px 0 30px 0;
+
+    .search-input{
+      height: 20px;
+      padding: 6px 12px;
+      display: inline-block;
+      width: auto;
+      vertical-align: middle;
+      border: 1px solid lightskyblue;
+      border-radius: 4px;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      transition: border-color .15s ease-in-out,box-shadow .15s;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      overflow: visible;
+    }
+
+    #search-button{
+      height: 34px;
+      border-radius: 4px;
+      margin-left: 5px;
+      background-color: #aeb2fc;
+      border: 1px solid lightskyblue;
+      &:focus{
+        outline: 0;
+      }
+
+      &:active {
+           position:relative;
+           top:1px;
+           box-shadow: (inset 0px 1px 0px 0px #ffffff,3px 3px 9px #ac2a2a);
+           border: none;
+           text-shadow: (1px 1px 16px #ffffff,5px -5px 30px #FFFFFF);
+         }
+
+
+    }
+  }
+
+
+  .content{
+
+    .city-name-block{
+
+      h2{
+        display: inline-block;
+      }
+      #add-to-list-button{
+        color: green;
+        font-weight: 300;
+        height: 35px;
+        width: 35px;
+        margin: 20px 0 20px 10px;
+        border-radius: 50%;
+        background-color: lightgreen;
+        border: 1px solid lightskyblue;
+        &:focus{
+          outline: 0;
+        }
+
+        &:active {
+          position:relative;
+          top:1px;
+          box-shadow: (inset 0px 1px 0px 0px #ffffff,3px 3px 9px #ac2a2a);
+          border: none;
+          text-shadow: (1px 1px 16px #ffffff,5px -5px 30px #FFFFFF);
+        }
+      }
+    }
+  }
+
 
   .flex-wrapper{
     display: flex;
+    flex-wrap: wrap;
 
     .flex-title{
       display: flex;
       flex-direction: column;
-    }
+      min-width: 200px;
+      margin: 5px auto 0 0;
 
-    .table{
-      margin: 0 0 40px 0;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-      display: table;
+      .title-description{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
-
-      .table-row{
-        background: #f6f6f6;
-        color: black;
-
-
-        .table-cell{
-          padding: 6px 12px;
-          display: table-cell;
-
+        .flex-block{
+          span{
+            font-size: 30px;
+          }
         }
+
       }
+
+
+
     }
+    .flex-forecast-table{
+      flex-grow: 1;
+      margin: 5px 0 0 10px;
+      text-align: center;
+      min-width: 400px;
 
-    .main-table{
-      width: 100%;
-      margin-left: auto;
 
-      .thirteen-table{
-        width: 100%;
+      h2{
+        height: 54px;
+        margin: 0;
       }
+
     }
   }
 

@@ -1,0 +1,97 @@
+.forecast-table{
+  min-width: 400px;
+  width: 100%;
+  margin: 0 auto 10px auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  display: table;
+
+  .table-row{
+    background: #f6f6f6;
+    color: black;
+
+
+    .table-cell{
+
+      padding: 6px 12px;
+      display: table-cell;
+
+      .date-img{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        flex: 1;
+
+        .date{
+          text-align: center;
+          flex: 1;
+        }
+        .img-cont{
+          flex: 1;
+
+        }
+      }
+
+      .flex-t-cont{
+        display: flex;
+        flex-direction: column;
+
+
+        .temp-wrapper{
+          color: white;
+          text-align: left;
+          display: flex;
+          flex-wrap: wrap;
+
+          .temp{
+            min-width: 17px;
+            margin: 2px 5px 2px 10px;
+            border-radius: 3px;
+            padding: 2px;
+          }
+
+          .min-temp{
+
+            background-color: #f0ad4e;
+          }
+          .max-temp{
+            background-color: #999;
+          }
+          .temp-description{
+            min-width: 25px;
+            text-align: center;
+            flex-grow: 1;
+            color: black;
+          }
+        }
+        .wind-speed{
+          margin: 3px auto 3px 10px;
+          flex-wrap: wrap;
+        }
+
+        .cl-pres-desc{
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .clouds-description{
+          margin: 0 5px 0 10px;
+        }
+
+        .pressure{
+          margin: 0 5px 0 10px;
+        }
+
+
+      }
+
+
+
+
+      div{
+
+      }
+
+    }
+  }
+}
