@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {LocalStorageAPI} from '../../utils/Localstorage';
 import {connect} from 'react-redux';
+import './citiesPage.scss'
 
 
 class AllCities extends React.Component{
@@ -12,14 +13,7 @@ class AllCities extends React.Component{
     }
 
     componentWillMount(){
-        console.log("lol");
         this.props.onAddCity("");
-    }
-
-    AddCity(){
-
-        this.props.onAddCity();
-        this.cityInput.value = '';
     }
 
     DeleteCity(cityName){
@@ -29,16 +23,16 @@ class AllCities extends React.Component{
 
     render(){
         return (
-            <div>
-                <ul>
+            <div className="cities-list-wrapper">
+                <ul className="cities-list">
                     {
                         this.props.cityStore.cities.map((city) => (
-                            <div key={city} >
-                                <li>
+                            <li key={city} >
+                                <div className="nav-link">
                                     <Link to={`/cities/${city}`}>{city}</Link>
-                                </li>
-                                <input type="submit" value="Remove" onClick={() => this.DeleteCity(city)}/>
-                            </div>
+                                </div>
+                                <input type="submit" value="X" onClick={() => this.DeleteCity(city)}/>
+                            </li>
                         ))
                     }
                 </ul>
